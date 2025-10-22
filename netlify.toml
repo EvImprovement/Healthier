@@ -8,15 +8,9 @@
   package = "@netlify/plugin-nextjs"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
-# Redirect rules
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-# Headers for PWA
+# Headers for PWA assets
 [[headers]]
   for = "/sw.js"
   [headers.values]
