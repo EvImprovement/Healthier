@@ -13,13 +13,13 @@ interface HeaderProps {
 
 export default function Header({ title, subtitle, showBack = false }: HeaderProps) {
   return (
-    <header className="bg-white border-b border-brand-dark/20 sticky top-0 z-40">
+    <header className="bg-brand-dark/95 border-b border-brand-light/20 sticky top-0 z-40 backdrop-blur-sm">
       <div className="max-w-screen-xl mx-auto px-4 py-4">
         <div className="flex items-center gap-3">
           {showBack && (
             <button
               onClick={() => window.history.back()}
-              className="text-brand-dark/60 hover:text-brand-dark"
+              className="text-brand-light/70 hover:text-brand-light"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -33,9 +33,9 @@ export default function Header({ title, subtitle, showBack = false }: HeaderProp
           )}
 
           <div>
-            <h1 className="text-xl font-bold text-brand-dark">{title}</h1>
+            <h1 className="text-xl font-bold text-brand-light">{title}</h1>
             {subtitle && (
-              <p className="text-sm text-brand-dark/60">{subtitle}</p>
+              <p className="text-sm text-brand-light/70">{subtitle}</p>
             )}
           </div>
         </div>

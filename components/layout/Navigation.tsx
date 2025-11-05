@@ -57,7 +57,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-brand-dark/20 z-50">
+    <nav className="fixed bottom-0 left-0 right-0 bg-brand-dark/95 border-t border-brand-light/20 z-50 backdrop-blur-sm">
       <div className="max-w-screen-xl mx-auto px-4">
         <div className="flex justify-around">
           {navItems.map((item) => {
@@ -71,7 +71,7 @@ export default function Navigation() {
                   flex flex-col items-center justify-center py-3 px-4 transition-colors
                   ${isActive
                     ? 'text-brand-lime'
-                    : 'text-brand-dark/60 hover:text-brand-dark'
+                    : 'text-brand-light/60 hover:text-brand-light'
                   }
                 `}
               >

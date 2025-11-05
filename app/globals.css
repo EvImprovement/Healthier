@@ -9,21 +9,13 @@
   --brand-lime: #9BF272;
   --brand-green: #7ABF5A;
 
-  /* Theme colors using brand palette */
-  --background: #BAC8D9;
-  --foreground: #193940;
+  /* Theme colors - Dark background theme */
+  --background: #193940;
+  --foreground: #BAC8D9;
 
   /* Fonts */
   --font-geist-sans: 'Geist Sans', system-ui, sans-serif;
   --font-geist-mono: 'Geist Mono', monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Keep consistent brand colors in dark mode */
-    --background: #193940;
-    --foreground: #BAC8D9;
-  }
 }
 
 * {

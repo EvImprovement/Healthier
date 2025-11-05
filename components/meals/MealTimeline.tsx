@@ -88,12 +88,12 @@ export default function MealTimeline({ meals, onDeleteMeal, filter = 'all' }: Me
         return (
           <div key={dateKey} className="space-y-4">
             {/* Date Header with Totals */}
-            <div className="sticky top-0 bg-white border-b border-brand-dark/20 pb-3 z-10">
-              <h3 className="text-lg font-semibold text-brand-dark">
+            <div className="sticky top-0 bg-brand-dark/95 border-b border-brand-light/20 pb-3 z-10 backdrop-blur-sm">
+              <h3 className="text-lg font-semibold text-brand-light">
                 {getDateHeader(dateKey)}
               </h3>
-              <div className="flex gap-4 text-sm text-brand-dark/70 mt-1">
-                <span className="font-medium">{Math.round(dayTotals.calories)} kcal</span>
+              <div className="flex gap-4 text-sm text-brand-light/80 mt-1">
+                <span className="font-medium text-brand-lime">{Math.round(dayTotals.calories)} kcal</span>
                 <span>P: {Math.round(dayTotals.protein)}g</span>
                 <span>C: {Math.round(dayTotals.carbs)}g</span>
                 <span>F: {Math.round(dayTotals.fat)}g</span>

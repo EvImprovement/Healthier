@@ -99,12 +99,12 @@ export default function StatsPage() {
   }, [meals, dateRange]);
 
   return (
-    <div className="min-h-screen bg-brand-light pb-20">
+    <div className="min-h-screen bg-brand-dark pb-20">
       <Header title="Statistics" subtitle="Track your nutrition progress" />
 
       <div className="max-w-screen-xl mx-auto px-4 py-6 space-y-6">
         {/* Date Range Filter */}
-        <div className="flex gap-2 bg-white rounded-lg border border-brand-dark/20 p-1">
+        <div className="flex gap-2 bg-brand-dark/60 rounded-lg border border-brand-light/20 p-1 backdrop-blur-sm">
           {(['7d', '30d', 'all'] as DateRange[]).map((range) => (
             <button
               key={range}
@@ -113,7 +113,7 @@ export default function StatsPage() {
                 flex-1 px-4 py-2 rounded-md text-sm font-medium transition-colors
                 ${dateRange === range
                   ? 'bg-brand-lime text-brand-dark'
-                  : 'text-brand-dark/60 hover:bg-brand-light'
+                  : 'text-brand-light/70 hover:bg-brand-light/10'
                 }
               `}
             >
@@ -170,8 +170,8 @@ export default function StatsPage() {
         </div>
 
         {/* Calorie Trend Chart */}
-        <div className="bg-white rounded-lg border border-brand-dark/20 p-6">
-          <h2 className="text-lg font-semibold text-brand-dark mb-4">
+        <div className="bg-brand-dark/60 rounded-lg border border-brand-light/20 p-6 backdrop-blur-sm">
+          <h2 className="text-lg font-semibold text-brand-light mb-4">
             Calorie Trend (Last 7 Days)
           </h2>
           <CalorieChart
@@ -185,8 +185,8 @@ export default function StatsPage() {
         <AdPlaceholder />
 
         {/* Macro Distribution */}
-        <div className="bg-white rounded-lg border border-brand-dark/20 p-6">
-          <h2 className="text-lg font-semibold text-brand-dark mb-4">
+        <div className="bg-brand-dark/60 rounded-lg border border-brand-light/20 p-6 backdrop-blur-sm">
+          <h2 className="text-lg font-semibold text-brand-light mb-4">
             Macro Distribution (Total)
           </h2>
           <MacroDistribution
@@ -197,32 +197,32 @@ export default function StatsPage() {
         </div>
 
         {/* Summary */}
-        <div className="bg-white rounded-lg border border-brand-dark/20 p-6">
-          <h2 className="text-lg font-semibold text-brand-dark mb-4">
+        <div className="bg-brand-dark/60 rounded-lg border border-brand-light/20 p-6 backdrop-blur-sm">
+          <h2 className="text-lg font-semibold text-brand-light mb-4">
             Summary
           </h2>
           <div className="space-y-3 text-sm">
             <div className="flex justify-between">
-              <span className="text-brand-dark/70">Average daily calories</span>
-              <span className="font-medium text-brand-dark">
+              <span className="text-brand-light/70">Average daily calories</span>
+              <span className="font-medium text-brand-lime">
                 {Math.round(stats.avgCalories)} kcal
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-brand-dark/70">Average daily protein</span>
-              <span className="font-medium text-brand-dark">
+              <span className="text-brand-light/70">Average daily protein</span>
+              <span className="font-medium text-brand-lime">
                 {Math.round(stats.avgProtein)}g
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-brand-dark/70">Average daily carbs</span>
-              <span className="font-medium text-brand-dark">
+              <span className="text-brand-light/70">Average daily carbs</span>
+              <span className="font-medium text-brand-lime">
                 {Math.round(stats.avgCarbs)}g
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-brand-dark/70">Average daily fat</span>
-              <span className="font-medium text-brand-dark">
+              <span className="text-brand-light/70">Average daily fat</span>
+              <span className="font-medium text-brand-lime">
                 {Math.round(stats.avgFat)}g
               </span>
             </div>

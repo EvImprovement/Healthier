@@ -55,17 +55,17 @@ export default function StatsCard({
   };
 
   return (
-    <div className="bg-white rounded-lg border border-brand-dark/20 p-6">
+    <div className="bg-brand-dark/60 rounded-lg border border-brand-light/20 p-6 backdrop-blur-sm">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-brand-dark/70">{title}</h3>
-        {icon && <div className="text-brand-dark/40">{icon}</div>}
+        <h3 className="text-sm font-medium text-brand-light/70">{title}</h3>
+        {icon && <div className="text-brand-light/40">{icon}</div>}
       </div>
 
       <div className="flex items-baseline gap-2">
-        <div className="text-3xl font-bold text-brand-dark">
+        <div className="text-3xl font-bold text-brand-lime">
           {Math.round(value)}
         </div>
-        <div className="text-sm text-brand-dark/60">{unit}</div>
+        <div className="text-sm text-brand-light/60">{unit}</div>
       </div>
 
       {trend && trendValue && (
