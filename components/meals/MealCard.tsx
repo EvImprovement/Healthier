@@ -31,14 +31,14 @@ export default function MealCard({ meal, onDelete }: MealCardProps) {
   const mealTypeName = getMealTypeDisplayName(meal.mealType);
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-lg border border-brand-dark/20 overflow-hidden hover:shadow-md transition-shadow">
       {/* Header with Image */}
       <div
         className="cursor-pointer"
         onClick={() => setExpanded(!expanded)}
       >
         {meal.imageUrl && (
-          <div className="relative h-48 bg-gray-100">
+          <div className="relative h-48 bg-brand-light">
             <img
               src={meal.imageUrl}
               alt="Meal"
@@ -61,15 +61,15 @@ export default function MealCard({ meal, onDelete }: MealCardProps) {
         {/* Quick Info */}
         <div className="p-4">
           <div className="flex items-center justify-between mb-2">
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-brand-dark/60">
               {format(new Date(meal.capturedAt), 'h:mm a')}
             </div>
-            <div className="text-lg font-bold text-gray-900">
+            <div className="text-lg font-bold text-brand-dark">
               {Math.round(meal.nutrition.calories)} kcal
             </div>
           </div>
 
-          <div className="flex gap-3 text-sm text-gray-600">
+          <div className="flex gap-3 text-sm text-brand-dark/70">
             <span>P: {Math.round(meal.nutrition.protein)}g</span>
             <span>C: {Math.round(meal.nutrition.carbohydrates)}g</span>
             <span>F: {Math.round(meal.nutrition.fat)}g</span>
@@ -79,7 +79,7 @@ export default function MealCard({ meal, onDelete }: MealCardProps) {
 
       {/* Expanded Details */}
       {expanded && (
-        <div className="border-t border-gray-200 p-4 space-y-4">
+        <div className="border-t border-brand-dark/20 p-4 space-y-4">
           <NutritionCard nutrition={meal.nutrition} />
 
           {/* Action Buttons */}
@@ -88,7 +88,7 @@ export default function MealCard({ meal, onDelete }: MealCardProps) {
               <>
                 <button
                   onClick={() => setExpanded(false)}
-                  className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                  className="flex-1 px-4 py-2 bg-brand-light text-brand-dark rounded-lg hover:bg-brand-light/70 transition-colors"
                 >
                   Close
                 </button>
@@ -103,7 +103,7 @@ export default function MealCard({ meal, onDelete }: MealCardProps) {
               <>
                 <button
                   onClick={() => setShowDeleteConfirm(false)}
-                  className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                  className="flex-1 px-4 py-2 bg-brand-light text-brand-dark rounded-lg hover:bg-brand-light/70 transition-colors"
                 >
                   Cancel
                 </button>

@@ -82,27 +82,27 @@ export default function HomePage() {
   const recentMeals = meals.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-brand-light pb-20">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
+      <header className="bg-white border-b border-brand-dark/20 sticky top-0 z-40">
         <div className="max-w-screen-xl mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">NutritionAI</h1>
-          <p className="text-sm text-gray-500">Track your meals with AI</p>
+          <h1 className="text-2xl font-bold text-brand-dark">NutritionAI</h1>
+          <p className="text-sm text-brand-dark/60">Track your meals with AI</p>
         </div>
       </header>
 
       <div className="max-w-screen-xl mx-auto px-4 py-6 space-y-8">
         {/* Camera Section */}
         <section>
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-lg font-semibold text-brand-dark mb-4">
             Scan Your Meal
           </h2>
           <CameraCapture onAnalysisComplete={handleAnalysisComplete} />
         </section>
 
         {/* Calorie Gauge Section */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+        <section className="bg-white rounded-lg border border-brand-dark/20 p-6">
+          <h2 className="text-lg font-semibold text-brand-dark mb-4 text-center">
             Today&apos;s Progress
           </h2>
           <CalorieGauge
@@ -121,12 +121,12 @@ export default function HomePage() {
         {recentMeals.length > 0 && (
           <section>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-gray-900">
+              <h2 className="text-lg font-semibold text-brand-dark">
                 Recent Meals
               </h2>
               <Link
                 href="/history"
-                className="text-sm text-green-600 hover:text-green-700 font-medium"
+                className="text-sm text-brand-lime hover:text-brand-green font-medium"
               >
                 View all →
               </Link>
@@ -147,20 +147,20 @@ export default function HomePage() {
         <AdPlaceholder />
 
         {/* Quick Stats */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+        <section className="bg-white rounded-lg border border-brand-dark/20 p-6">
+          <h2 className="text-lg font-semibold text-brand-dark mb-4">
             Quick Stats
           </h2>
           <div className="grid grid-cols-2 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">{meals.length}</div>
-              <div className="text-sm text-gray-500">Total Meals</div>
+              <div className="text-2xl font-bold text-brand-dark">{meals.length}</div>
+              <div className="text-sm text-brand-dark/60">Total Meals</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">
+              <div className="text-2xl font-bold text-brand-dark">
                 {calculateDailyStats(meals, getTodayDateString()).meals.length}
               </div>
-              <div className="text-sm text-gray-500">Today</div>
+              <div className="text-sm text-brand-dark/60">Today</div>
             </div>
           </div>
         </section>

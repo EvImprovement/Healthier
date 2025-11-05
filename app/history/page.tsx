@@ -37,7 +37,7 @@ export default function HistoryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-brand-light pb-20">
       <Header title="Meal History" subtitle={`${meals.length} meals logged`} />
 
       <div className="max-w-screen-xl mx-auto px-4 py-6">

@@ -87,14 +87,14 @@ export default function CalorieGauge({
           {/* Protein */}
           <div>
             <div className="flex justify-between text-sm mb-1">
-              <span className="font-medium text-gray-700">Protein</span>
-              <span className="text-gray-600">
+              <span className="font-medium text-brand-dark">Protein</span>
+              <span className="text-brand-dark/70">
                 {Math.round(protein)}g / {proteinGoal}g
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-brand-light rounded-full h-2">
               <div
-                className="bg-blue-500 h-2 rounded-full transition-all duration-500"
+                className="bg-brand-lime h-2 rounded-full transition-all duration-500"
                 style={{
                   width: `${Math.min((protein / proteinGoal) * 100, 100)}%`,
                 }}
@@ -105,14 +105,14 @@ export default function CalorieGauge({
           {/* Carbs */}
           <div>
             <div className="flex justify-between text-sm mb-1">
-              <span className="font-medium text-gray-700">Carbs</span>
-              <span className="text-gray-600">
+              <span className="font-medium text-brand-dark">Carbs</span>
+              <span className="text-brand-dark/70">
                 {Math.round(carbs)}g / {carbsGoal}g
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-brand-light rounded-full h-2">
               <div
-                className="bg-yellow-500 h-2 rounded-full transition-all duration-500"
+                className="bg-brand-green h-2 rounded-full transition-all duration-500"
                 style={{
                   width: `${Math.min((carbs / carbsGoal) * 100, 100)}%`,
                 }}
@@ -123,14 +123,14 @@ export default function CalorieGauge({
           {/* Fat */}
           <div>
             <div className="flex justify-between text-sm mb-1">
-              <span className="font-medium text-gray-700">Fat</span>
-              <span className="text-gray-600">
+              <span className="font-medium text-brand-dark">Fat</span>
+              <span className="text-brand-dark/70">
                 {Math.round(fat)}g / {fatGoal}g
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-brand-light rounded-full h-2">
               <div
-                className="bg-purple-500 h-2 rounded-full transition-all duration-500"
+                className="bg-brand-dark h-2 rounded-full transition-all duration-500"
                 style={{
                   width: `${Math.min((fat / fatGoal) * 100, 100)}%`,
                 }}
@@ -140,7 +140,7 @@ export default function CalorieGauge({
 
           <button
             onClick={() => setExpanded(false)}
-            className="w-full mt-2 text-sm text-gray-500 hover:text-gray-700"
+            className="w-full mt-2 text-sm text-brand-dark/60 hover:text-brand-dark"
           >
             Hide details
           </button>
@@ -151,7 +151,7 @@ export default function CalorieGauge({
         <div className="text-center mt-4">
           <button
             onClick={() => setExpanded(true)}
-            className="text-sm text-green-600 hover:text-green-700 font-medium"
+            className="text-sm text-brand-lime hover:text-brand-green font-medium"
           >
             View macro breakdown
           </button>

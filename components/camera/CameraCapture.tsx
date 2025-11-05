@@ -156,14 +156,14 @@ export default function CameraCapture({ onAnalysisComplete }: CameraCaptureProps
             <button
               onClick={handleRetake}
               disabled={isAnalyzing}
-              className="flex-1 px-4 py-3 bg-gray-500 text-white rounded-lg font-medium hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-3 bg-brand-dark text-white rounded-lg font-medium hover:bg-brand-dark/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Retake
             </button>
             <button
               onClick={handleAnalyze}
               disabled={isAnalyzing}
-              className="flex-1 px-4 py-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-3 bg-brand-lime text-brand-dark rounded-lg font-medium hover:bg-brand-green disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {isAnalyzing ? (
                 <span className="flex items-center justify-center gap-2">
@@ -194,10 +194,10 @@ export default function CameraCapture({ onAnalysisComplete }: CameraCaptureProps
       ) : (
         <button
           onClick={triggerFileInput}
-          className="w-full aspect-square flex flex-col items-center justify-center gap-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-green-500 hover:bg-green-50 transition-colors"
+          className="w-full aspect-square flex flex-col items-center justify-center gap-4 border-2 border-dashed border-brand-dark/30 rounded-lg hover:border-brand-lime hover:bg-brand-lime/10 transition-colors"
         >
           <svg
-            className="w-16 h-16 text-gray-400"
+            className="w-16 h-16 text-brand-dark/40"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -215,10 +215,10 @@ export default function CameraCapture({ onAnalysisComplete }: CameraCaptureProps
               d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
-          <span className="text-lg font-medium text-gray-600">
+          <span className="text-lg font-medium text-brand-dark">
             Take Photo
           </span>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-brand-dark/60">
             or upload from gallery
           </span>
         </button>

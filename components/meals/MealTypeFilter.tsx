@@ -36,14 +36,14 @@ export default function MealTypeFilter({ selected, onChange, counts }: MealTypeF
             className={`
               px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors
               ${isSelected
-                ? 'bg-green-500 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-brand-lime text-brand-dark'
+                : 'bg-white border border-brand-dark/20 text-brand-dark/70 hover:bg-brand-light/50'
               }
             `}
           >
             {option.label}
             {counts && count > 0 && (
-              <span className={`ml-1.5 ${isSelected ? 'text-green-100' : 'text-gray-500'}`}>
+              <span className={`ml-1.5 ${isSelected ? 'text-brand-dark/60' : 'text-brand-dark/50'}`}>
                 ({count})
               </span>
             )}

@@ -3,16 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand colors */
+  --brand-light: #BAC8D9;
+  --brand-dark: #193940;
+  --brand-lime: #9BF272;
+  --brand-green: #7ABF5A;
+
+  /* Theme colors using brand palette */
+  --background: #BAC8D9;
+  --foreground: #193940;
+
+  /* Fonts */
   --font-geist-sans: 'Geist Sans', system-ui, sans-serif;
   --font-geist-mono: 'Geist Mono', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Keep consistent brand colors in dark mode */
+    --background: #193940;
+    --foreground: #BAC8D9;
   }
 }
 

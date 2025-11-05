@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "NutritionAI - Smart Meal Tracking",
   description: "Track your nutrition with AI-powered meal scanning",
   manifest: "/manifest.json",
-  themeColor: "#10b981",
+  themeColor: "#193940",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
