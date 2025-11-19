@@ -51,6 +51,15 @@ export interface UserProfile {
   fatGoal: number;
 }
 
+export interface SubscriptionStatus {
+  isActive: boolean;
+  isTrial: boolean;
+  trialEndsAt: Date | null;
+  subscribedAt: Date | null;
+  hasSeenModal: boolean;
+  modalDismissedCount: number;
+}
+
 // Mock AI Response (simulating LogMeal API)
 export interface MockAIResponse {
   recognition: {

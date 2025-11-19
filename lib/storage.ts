@@ -3,12 +3,13 @@
  * Handles persistent storage with error handling and TypeScript safety
  */
 
-import { Meal, UserProfile } from './types';
+import { Meal, UserProfile, SubscriptionStatus } from './types';
 
 const STORAGE_KEYS = {
   MEALS: 'nutrition-app-meals',
   PROFILE: 'nutrition-app-profile',
   DEMO_SEEDED: 'nutrition-app-demo-seeded',
+  SUBSCRIPTION: 'nutrition-app-subscription',
 } as const;
 
 /**
@@ -102,6 +103,86 @@ class StorageService {
 
   markDemoSeeded(): void {
     this.setItem(STORAGE_KEYS.DEMO_SEEDED, true);
+  }
+
+  // Subscription
+  getSubscription(): SubscriptionStatus {
+    const defaultStatus: SubscriptionStatus = {
+      isActive: false,
+      isTrial: false,
+      trialEndsAt: null,
+      subscribedAt: null,
+      hasSeenModal: false,
+      modalDismissedCount: 0,
+    };
+
+    const subscription = this.getItem<SubscriptionStatus>(STORAGE_KEYS.SUBSCRIPTION, defaultStatus);
+
+    // Convert date strings back to Date objects
+    if (subscription.trialEndsAt) {
+      subscription.trialEndsAt = new Date(subscription.trialEndsAt);
+    }
+    if (subscription.subscribedAt) {
+      subscription.subscribedAt = new Date(subscription.subscribedAt);
+    }
+
+    return subscription;
+  }
+
+  updateSubscription(updates: Partial<SubscriptionStatus>): void {
+    const current = this.getSubscription();
+    this.setItem(STORAGE_KEYS.SUBSCRIPTION, { ...current, ...updates });
+  }
+
+  startTrial(): void {
+    const trialEndsAt = new Date();
+    trialEndsAt.setDate(trialEndsAt.getDate() + 14); // 14 days from now
+
+    this.updateSubscription({
+      isActive: true,
+      isTrial: true,
+      trialEndsAt,
+      subscribedAt: new Date(),
+    });
+  }
+
+  activateSubscription(): void {
+    this.updateSubscription({
+      isActive: true,
+      isTrial: false,
+      trialEndsAt: null,
+    });
+  }
+
+  dismissModal(): void {
+    const current = this.getSubscription();
+    this.updateSubscription({
+      hasSeenModal: true,
+      modalDismissedCount: current.modalDismissedCount + 1,
+    });
+  }
+
+  shouldShowSubscriptionModal(): boolean {
+    const subscription = this.getSubscription();
+    const meals = this.getMeals();
+
+    // Don't show if already subscribed or in trial
+    if (subscription.isActive) {
+      return false;
+    }
+
+    // Show after 3 meals if never seen
+    if (!subscription.hasSeenModal && meals.length >= 3) {
+      return true;
+    }
+
+    // Show every 10 meals after first dismissal
+    if (subscription.hasSeenModal && subscription.modalDismissedCount < 3) {
+      const mealsSinceDismissal = meals.length % 10;
+      return mealsSinceDismissal === 0 && meals.length > 0;
+    }
+
+    return false;
   }
 
   // Clear all data

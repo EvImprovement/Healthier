@@ -11,6 +11,7 @@ import CameraCapture from '@/components/camera/CameraCapture';
 import CalorieGauge from '@/components/nutrition/CalorieGauge';
 import MealCard from '@/components/meals/MealCard';
 import AdPlaceholder from '@/components/layout/AdPlaceholder';
+import SubscriptionModal from '@/components/subscription/SubscriptionModal';
 import { Meal, NutritionData } from '@/lib/types';
 import { storage } from '@/lib/storage';
 import { classifyMealByTime } from '@/lib/meal-classifier';
@@ -21,6 +22,7 @@ import Link from 'next/link';
 export default function HomePage() {
   const [meals, setMeals] = useState<Meal[]>([]);
   const [profile, setProfile] = useState(storage.getProfile());
+  const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
   const [todayStats, setTodayStats] = useState({
     totalCalories: 0,
     totalProtein: 0,
@@ -55,6 +57,12 @@ export default function HomePage() {
     });
   }, [meals]);
 
+  // Check if should show subscription modal
+  useEffect(() => {
+    const shouldShow = storage.shouldShowSubscriptionModal();
+    setShowSubscriptionModal(shouldShow);
+  }, [meals]);
+
   const handleAnalysisComplete = (imageUrl: string, nutrition: NutritionData) => {
     const now = new Date();
     const newMeal: Meal = {
@@ -78,11 +86,30 @@ export default function HomePage() {
     setMeals(meals.filter(m => m.id !== mealId));
   };
 
+  const handleSubscribe = () => {
+    storage.startTrial();
+    setShowSubscriptionModal(false);
+    // TODO: Integrate with payment provider (Stripe, etc.)
+    alert('Welcome to your 14-day free trial! 🎉');
+  };
+
+  const handleCloseModal = () => {
+    storage.dismissModal();
+    setShowSubscriptionModal(false);
+  };
+
   // Get recent meals (last 3)
   const recentMeals = meals.slice(0, 3);
 
   return (
     <div className="min-h-screen bg-brand-dark pb-20">
+      {/* Subscription Modal */}
+      <SubscriptionModal
+        isOpen={showSubscriptionModal}
+        onClose={handleCloseModal}
+        onSubscribe={handleSubscribe}
+      />
+
       {/* Header */}
       <header className="bg-brand-dark/95 border-b border-brand-light/20 sticky top-0 z-40 backdrop-blur-sm">
         <div className="max-w-screen-xl mx-auto px-4 py-4">
