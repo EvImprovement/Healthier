@@ -7,6 +7,7 @@
 
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Image from 'next/image';
 import CameraCapture from '@/components/camera/CameraCapture';
 import CalorieGauge from '@/components/nutrition/CalorieGauge';
 import MealCard from '@/components/meals/MealCard';
@@ -119,9 +120,19 @@ export default function HomePage() {
       <header className="bg-brand-dark/95 border-b border-brand-light/20 sticky top-0 z-40 backdrop-blur-sm">
         <div className="max-w-screen-xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-brand-light">NutritionAI</h1>
-              <p className="text-sm text-brand-light/70">Track your meals with AI</p>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="Healthier Logo"
+                width={40}
+                height={40}
+                className="rounded-lg"
+                priority
+              />
+              <div>
+                <h1 className="text-2xl font-bold text-brand-light">Healthier</h1>
+                <p className="text-sm text-brand-light/70">Track your nutrition with AI</p>
+              </div>
             </div>
             <UpgradeButton onClick={handleOpenModal} variant="header" />
           </div>

@@ -14,14 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NutritionAI - Smart Meal Tracking",
+  title: "Healthier - Smart Nutrition Tracking",
   description: "Track your nutrition with AI-powered meal scanning",
   manifest: "/manifest.json",
   themeColor: "#193940",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "NutritionAI",
+    title: "Healthier",
   },
   viewport: {
     width: "device-width",
@@ -38,8 +38,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
