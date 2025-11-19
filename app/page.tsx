@@ -12,6 +12,7 @@ import CalorieGauge from '@/components/nutrition/CalorieGauge';
 import MealCard from '@/components/meals/MealCard';
 import AdPlaceholder from '@/components/layout/AdPlaceholder';
 import SubscriptionModal from '@/components/subscription/SubscriptionModal';
+import UpgradeButton from '@/components/subscription/UpgradeButton';
 import { Meal, NutritionData } from '@/lib/types';
 import { storage } from '@/lib/storage';
 import { classifyMealByTime } from '@/lib/meal-classifier';
@@ -98,6 +99,10 @@ export default function HomePage() {
     setShowSubscriptionModal(false);
   };
 
+  const handleOpenModal = () => {
+    setShowSubscriptionModal(true);
+  };
+
   // Get recent meals (last 3)
   const recentMeals = meals.slice(0, 3);
 
@@ -113,8 +118,13 @@ export default function HomePage() {
       {/* Header */}
       <header className="bg-brand-dark/95 border-b border-brand-light/20 sticky top-0 z-40 backdrop-blur-sm">
         <div className="max-w-screen-xl mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-brand-light">NutritionAI</h1>
-          <p className="text-sm text-brand-light/70">Track your meals with AI</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-bold text-brand-light">NutritionAI</h1>
+              <p className="text-sm text-brand-light/70">Track your meals with AI</p>
+            </div>
+            <UpgradeButton onClick={handleOpenModal} variant="header" />
+          </div>
         </div>
       </header>
 
